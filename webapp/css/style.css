@@ -1,0 +1,12 @@
+/* Enter your custom styles here */
+.centerTable .sapUiTableCell {
+  text-align: center;
+}
+.centerTable .sapMText {
+  text-align: center;
+}
+.centerTable .sapUiTableColHdrCnt .sapMLabel {
+  text-align: center;
+  width: 100%;
+  display: block;
+}

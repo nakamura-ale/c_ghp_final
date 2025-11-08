@@ -1,0 +1,207 @@
+<mvc:View
+    controllerName="cghpfinal.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns="sap.m"
+    xmlns:table="sap.ui.table"
+    xmlns:fb="sap.ui.comp.filterbar"
+>
+    <Page
+        id="page"
+        title="{i18n>title}"
+    >
+        <content>
+            <!-- Filter Bar -->
+            <fb:FilterBar
+                id="filterBar1"
+                reset="onFilterReset"
+                search="onSearch"
+            >
+                <fb:filterItems>
+                    <fb:FilterItem
+                        name="InterfaceType"
+                        label="Interface Type"
+                    >
+                        <fb:control>
+                            <Input value="{filter>/ZTPINT}" />
+                        </fb:control>
+                    </fb:FilterItem>
+
+                    <fb:FilterItem
+                        name="Batch"
+                        label="{i18n>ZBATCH}"
+                    >
+                        <fb:control>
+                            <Input value="{filter>/ZBATCH}" />
+                        </fb:control>
+                    </fb:FilterItem>
+
+                    <fb:FilterItem
+                        name="ZDTRECEBIMENTO_FROM"
+                        label="Data de Recebimento (De)"
+                    >
+                        <fb:control>
+                            <DatePicker
+                                width="100%"
+                                displayFormat="yyyy.MM.dd"
+                                valueFormat="yyyy-MM-dd"
+                                value="{filter>/ZDTRECEBIMENTO_FROM}"
+                            />
+                        </fb:control>
+                    </fb:FilterItem>
+
+                    <fb:FilterItem
+                        name="ZDTRECEBIMENTO_TO"
+                        label="Data de Recebimento (Até)"
+                    >
+                        <fb:control>
+                            <DatePicker
+                                width="100%"
+                                displayFormat="yyyy.MM.dd"
+                                valueFormat="yyyy-MM-dd"
+                                value="{filter>/ZDTRECEBIMENTO_TO}"
+                            />
+                        </fb:control>
+                    </fb:FilterItem>
+                </fb:filterItems>
+            </fb:FilterBar>
+
+            <FlexBox
+                alignItems="Center"
+                justifyContent="End"
+            >
+                <Button
+                    text="Reprocessamento"
+                    class="sapUiTinyMarginEnd"
+                    press="onReprocess"
+                    icon="sap-icon://refresh"
+                />
+            </FlexBox>
+
+            <!-- Tabela -->
+            <table:Table
+                id="tblData"
+                rows="{view>/data}"
+                selectionMode="MultiToggle"
+                visibleRowCount="10"
+                enableColumnReordering="true"
+                enableColumnFreeze="true"
+                showColumnVisibilityMenu="true"
+                enableSelectAll="true"
+                enableGrouping="true"
+                class="sapUiSmallMarginTop centerTable"
+            >
+                <table:Column
+                    sortProperty="ZTPINT"
+                    filterProperty="ZTPINT"
+                    sortOrder="Ascending"
+                >
+                    <Label text="Interface Type" />
+                    <table:template>
+                        <Text text="{view>ZTPINT}" />
+                    </table:template>
+                </table:Column>
+                <table:Column
+                    sortProperty="ZBATCH"
+                    sortOrder="Ascending"
+                >
+                    <Label text="Batch" />
+                    <table:template>
+                        <Text text="{view>ZBATCH}" />
+                    </table:template>
+                </table:Column>
+                <table:Column
+                    sortProperty="ZDTRECEBIMENTO"
+                    sortOrder="Ascending"
+                >
+                    <Label text="Receipt Date" />
+                    <table:template>
+                        <Text
+                            text="{path: 'view>ZDTRECEBIMENTO', formatter: '.formatter.formatDate'}"
+                        />
+                    </table:template>
+                </table:Column>
+                <table:Column
+                    sortProperty="ZSTATUSDOC"
+                    sortOrder="Ascending"
+                >
+                    <Label text="Status" />
+                    <table:template>
+                        <Text text="{view>ZSTATUSDOC}" />
+                    </table:template>
+                </table:Column>
+                <table:Column
+                    sortProperty="MATERIAL_CODE"
+                    sortOrder="Ascending"
+                >
+                    <Label text="Material Code" />
+                    <table:template>
+                        <Text text="{view>MATERIAL_CODE}" />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Quantity" />
+                    <table:template>
+                        <Text text="{view>QUANTITY}" />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Unit Of Measure" />
+                    <table:template>
+                        <Text text="{view>UNIDADE}" />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Plant" />
+                    <table:template>
+                        <Text text="{view>PLANT}" />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Time of Receipt" />
+                    <table:template>
+                         <Text
+                             text="{path: 'view>TIME', formatter: '.formatter.formatTime'}"
+                          />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Account" />
+                    <table:template>
+                        <Text text="{view>GL_ACCOUNT}" />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="NF-e Reference" />
+                    <table:template>
+                        <Text text="{view>NFE_REFERENCE}" />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Moviment Type" />
+                    <table:template>
+                        <Text text="{view>MOVIMENT}" />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Deposit" />
+                    <table:template>
+                        <Text text="{view>DEPOSIT}" />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Split" />
+                    <table:template>
+                        <Text text="{view>SPLIT}" />
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Error Message" />
+                    <table:template>
+                        <Text text="{view>ZMSG}" />
+                    </table:template>
+                </table:Column>
+            </table:Table>
+        </content>
+    </Page>
+</mvc:View>

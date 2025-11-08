@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+specVersion: "3.1"
+metadata:
+  name: cghpfinal
+type: application
+
+server:
+  customMiddleware:
+    # Middleware padrão SAP
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertErrors: true
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+
+    # 🔹 Proxy APENAS para chamadas /api/*
+    - name: ui5-middleware-simpleproxy
+      afterMiddleware: compression
+      mountPath: /mongo-compare
+      configuration:
+        baseUri: "http://3.19.60.74:3000/mongo-compare"
+        debug: true
+
+    # Live reload
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+
+    # FLP Preview
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        flp:
+          theme: sap_horizon
