@@ -1,11 +1,11 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/m/MessageToast",
-    "sap/m/MessageBox",
-    "sap/ui/model/json/JSONModel",
-    "cghpfinal/model/formatter",
-    "cghpfinal/model/ReprocessBuilder"
-], (Controller, MessageToast, MessageBox, JSONModel, formatter, ReprocessBuilder) => {
+    "sap/m/MessageBox", 
+    "cghpfinal/model/formatter", 
+    "cghpfinal/model/Config",
+    "cghpfinal/model/DataFormatter"
+], (Controller, MessageToast, MessageBox,  formatter, Config,DataFormatter) => {
     "use strict";
 
     return Controller.extend("cghpfinal.controller.View1", {
@@ -39,23 +39,26 @@ sap.ui.define([
         },
 
         onSearch: function () {
+
+            const USE_MOCK = true;
+            if (USE_MOCK) {
+                this._loadMockData();
+                return;
+            }
+
             const oFilterData = this.getView().getModel("filter").getData();
-
-            // 🔹 Extrai os parâmetros da tela
-            const from = oFilterData.ZDTRECEBIMENTO_FROM || "";
-            const to = oFilterData.ZDTRECEBIMENTO_TO || "";
-            const batch = oFilterData.ZBATCH || "";
-            const ztpint = oFilterData.ZTPINT || "";
-            const status = oFilterData.STATUS || "RE"; // padrão se quiser
-
-
 
             // const baseUrl = "/mongo-compare/material-document-search?from=2025-06-01&to=2025-10-27&batch=P40710&status=RE&ztpint=10";
 
-            const baseUrl = `/mongo-compare/material-document-search?` +
-                `from=${from}&to=${to}&batch=${batch}&status=${status}&ztpint=${ztpint}`;
-
-            console.log("🔍 URL montada:", baseUrl);
+            //const baseUrl = `/mongo-compare/material-document-search?` +
+            //    `from=${from}&to=${to}&batch=${batch}&status=${status}&ztpint=${ztpint}`;
+            const baseUrl = Config.buildUrl("MATERIAL_SEARCH", {
+                from:   oFilterData.ZDTRECEBIMENTO_FROM || "",
+                to:     oFilterData.ZDTRECEBIMENTO_TO || "",
+                batch:  oFilterData.ZBATCH || "",
+                status: oFilterData.STATUS || "",
+                ztpint: oFilterData.ZTPINT || ""
+            });
 
             fetch(baseUrl)
                 .then(res => {
@@ -67,88 +70,50 @@ sap.ui.define([
                     this.getView().getModel("raw").setProperty("/rawData", data);
 
                     // 🔹 Trata os dados para exibir na tabela
-                    const treated = this._flattenData(data);
+                    const treated = DataFormatter.flattenData(data);
                     this.getView().getModel("view").setProperty("/data", treated);
                     if (!data || data.length === 0) {
                         this.getView().getModel("view").setProperty("/data", []);
                         sap.m.MessageToast.show("Nenhum dado encontrado para os filtros informados.");
                         return;
                     }
-
-                    // 🔹 Após carregar os dados, aplicar o bloqueio visual
-                    setTimeout(() => this.disableRestrictedRows(), 300);
+ 
                 })
                 .catch(err => {
                     console.error("Erro ao carregar API:", err);
                     MessageToast.show("Erro ao carregar dados da API externa.");
                 });
+
         },
 
-        _flattenData: function (data) {
-            if (!Array.isArray(data)) return [];
 
-            return data.map(header => {
-                const flattened = {
-                    ZTPINT: header.ZTPINT,
-                    ZBATCH: header.ZBATCH,
-                    ZSTATUSDOC: header.ZSTATUSDOC,
-                    ZDTRECEBIMENTO: header.ZDTRECEBIMENTO || "",
-                    ZMSG: header.ZMSG || "",
-                    MATERIAL_CODE: "",
-                    QUANTITY: "",
-                    UNIDADE: "",
-                    PLANT: "",
-                    TIME: header.ZHORA || "",
-                    GL_ACCOUNT: "",
-                    NFE_REFERENCE: header.ZDOCNUM || "",
-                    MOVIMENT: "",
-                    DEPOSIT: "",
-                    SPLIT: ""
-                };
 
-                header.ITEM?.forEach(item => {
-                    const valor = item.ZVALOR;
-                    switch (item.ZFIELD) {
-                        case "DOC_DATE":
-                            flattened.ZDTRECEBIMENTO = valor;
-                            break;
-                        case "GM_CODE":
-                            flattened.MOVIMENT = valor;
-                            break;
-                        case "MATERIAL":
-                            flattened.MATERIAL_CODE = valor;
-                            break;
-                        case "QUANTITY":
-                            flattened.QUANTITY = valor;
-                            break;
-                        case "ENTRY_UOM":
-                            flattened.UNIDADE = valor;
-                            break;
-                        case "PLANT":
-                            flattened.PLANT = valor;
-                            break;
-                        case "GL_ACCOUNT":
-                            flattened.GL_ACCOUNT = valor;
-                            break;
-                        case "STGE_LOC":
-                            flattened.DEPOSIT = valor;
-                            break;
-                        case "SPLIT":
-                            flattened.SPLIT = valor;
-                            break;
-                        case "NFE_REFERENCE":
-                            flattened.NFE_REFERENCE = valor;
-                            break;
-                        default:
-                            break;
-                    }
-                });
+        // ------------------------------------------------------------------------- 
+        //  Caminho do arquivo mockado (relativo à pasta webapp)
+       // -------------------------------------------------------------------------
+        _loadMockData: function () {
+            const sMockPath = sap.ui.require.toUrl("cghpfinal/localService/mockdata/b1.json");
+            // 🔹 Carrega o arquivo mock via JSONModel
+            const oMockModel = new sap.ui.model.json.JSONModel(sMockPath);
 
-                return flattened;
+            oMockModel.attachRequestCompleted(() => {
+                const mockData = oMockModel.getData();
+
+                // Guarda o JSON original completo
+                //oRawModel.setProperty("/rawData", mockData);
+                this.getView().getModel("raw").setProperty("/rawData", mockData);
+
+                // Trata e exibe os dados
+                const treated = DataFormatter.flattenData(mockData);
+                this.getView().getModel("view").setProperty("/data", treated);
+
+                sap.m.MessageToast.show("Dados mockados carregados a partir do arquivo local.");
             });
-        },
+        }, 
 
-
+        // ------------------------------------------------------------------------- 
+        //  Reprocessar itens selecionados
+       // -------------------------------------------------------------------------
         onReprocess: function () {
             const oTable = this.byId("tblData");
 
@@ -182,7 +147,7 @@ sap.ui.define([
                 if (!original) return;
 
                 // 🔹 Usa o builder separado
-                const jsonFinal = ReprocessBuilder.buildReprocessJson(original);
+                const jsonFinal = DataFormatter.buildReprocessJson(original);
                 if (jsonFinal) aToSend.push(jsonFinal);
             });
 
@@ -191,6 +156,18 @@ sap.ui.define([
                 sap.m.MessageToast.show("Nenhum dado válido para envio.");
                 return;
             }
+
+
+            //               aToSend.forEach(item => {
+            //        fetch("/mongo-compare/reprocess", {
+            //            method: "POST",
+            //           headers: { "Content-Type": "application/json" },
+            //            body: JSON.stringify(item)
+            //         }).catch(err => {
+            //             // Loga, mas não interrompe o restante
+            //             console.error("Falha ao enviar item:", err);
+            //         });
+            //          });
 
 
             fetch("/mongo-compare/reprocess", {
@@ -203,12 +180,11 @@ sap.ui.define([
                     return res.json();
                 })
                 .then(result => {
-                    sap.m.MessageToast.show("Reprocessamento enviado com sucesso!");
-                    console.log("Retorno da API:", result);
+                    MessageBox.show("Reprocessamento enviado com sucesso!"); 
                 })
                 .catch(err => {
                     console.error("Erro no reprocessamento:", err);
-                    sap.m.MessageBox.error("Falha ao enviar dados para reprocessamento.");
+                    MessageBox.error("Falha ao enviar dados para reprocessamento.");
                 });
         },
 
