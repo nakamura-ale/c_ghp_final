@@ -5,8 +5,9 @@ sap.ui.define([], function () {
         flattenData: function (data) {
             if (!Array.isArray(data)) return [];
 
-            return data.map(header => {
-                const flattened = {
+            return data.flatMap(header => {
+                // --- 1. Base da linha (dados gerais do header) ---
+                const baseRow = {
                     ZTPINT: header.ZTPINT,
                     ZBATCH: header.ZBATCH,
                     ZSTATUSDOC: header.ZSTATUSDOC,
@@ -24,26 +25,68 @@ sap.ui.define([], function () {
                     SPLIT: ""
                 };
 
-                header.ITEM?.forEach(item => {
+                // --- 2. Separa itens do header (000000) e itens reais ---
+                const headerItems = header.ITEM?.filter(i => i.ZITMNUM === "000000") || [];
+                const itemRows = header.ITEM?.filter(i => i.ZITMNUM !== "000000") || [];
+
+                // --- 3. Cria objeto com campos dos header items ---
+                const headerValues = { ...baseRow };
+                headerItems.forEach(item => {
                     const valor = item.ZVALOR;
                     switch (item.ZFIELD) {
-                        case "DOC_DATE": flattened.ZDTRECEBIMENTO = valor; break;
-                        case "GM_CODE": flattened.MOVIMENT = valor; break;
-                        case "MATERIAL": flattened.MATERIAL_CODE = valor; break;
-                        case "QUANTITY": flattened.QUANTITY = valor; break;
-                        case "ENTRY_UOM": flattened.UNIDADE = valor; break;
-                        case "PLANT": flattened.PLANT = valor; break;
-                        case "GL_ACCOUNT": flattened.GL_ACCOUNT = valor; break;
-                        case "STGE_LOC": flattened.DEPOSIT = valor; break;
-                        case "SPLIT": flattened.SPLIT = valor; break;
-                        case "NFE_REFERENCE": flattened.NFE_REFERENCE = valor; break;
+                        case "DOC_DATE": headerValues.ZDTRECEBIMENTO = valor; break;
+                        case "GM_CODE": headerValues.MOVIMENT = valor; break;
+                        case "MATERIAL": headerValues.MATERIAL_CODE = valor; break;
+                        case "QUANTITY": headerValues.QUANTITY = valor; break;
+                        case "ENTRY_UOM": headerValues.UNIDADE = valor; break;
+                        case "PLANT": headerValues.PLANT = valor; break;
+                        case "GL_ACCOUNT": headerValues.GL_ACCOUNT = valor; break;
+                        case "STGE_LOC": headerValues.DEPOSIT = valor; break;
+                        case "SPLIT": headerValues.SPLIT = valor; break; 
                         default: break;
                     }
                 });
 
-                return flattened;
+                // --- 4. Agrupa os itens por ZITMNUM ---
+                const agrupados = {};
+                itemRows.forEach(item => {
+                    if (!agrupados[item.ZITMNUM]) {
+                        agrupados[item.ZITMNUM] = [];
+                    }
+                    agrupados[item.ZITMNUM].push(item);
+                });
+
+                // --- 5. Criar uma linha por ZITMNUM 
+                return Object.keys(agrupados).map(zitem => {
+                    // Começa com os valores do header + headerItems
+                    const linha = { ...headerValues, ZITMNUM: zitem };
+
+                    agrupados[zitem].forEach(item => {
+                        const valor = item.ZVALOR;
+ 
+                        switch (item.ZFIELD) {
+                            case "DOC_DATE": linha.ZDTRECEBIMENTO = valor; break;
+                            case "GM_CODE": linha.MOVIMENT = valor; break;
+                            case "MATERIAL": linha.MATERIAL_CODE = valor; break;
+                            case "QUANTITY": linha.QUANTITY = valor; break;
+                            case "ENTRY_UOM": linha.UNIDADE = valor; break;
+                            case "PLANT": linha.PLANT = valor; break;
+                            case "GL_ACCOUNT": linha.GL_ACCOUNT = valor; break;
+                            case "STGE_LOC": linha.DEPOSIT = valor; break;
+                            case "SPLIT": linha.SPLIT = valor; break;
+                            case "NFE_REFERENCE": linha.NFE_REFERENCE = valor; break; 
+                            case "ZITMNUM":linha.ITMNUM = valor; break;
+
+                            default: break;
+                        }
+                    });
+
+                    return linha;
+                });
             });
         },
+
+
         buildReprocessJson: function (original) {
             if (!original) return null;
 

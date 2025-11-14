@@ -1,9 +1,7 @@
 [
   {
-    "_id": {
-
-    },
-       "ZTPINT": "10",
+    "_id": {},
+    "ZTPINT": "10",
     "ZBATCH": "P40710",
     "ZSTATUSDOC": "RE",
     "ZMBLNR": "",
@@ -468,5 +466,942 @@
         "ZVALOR": "4"
       }
     ]
-  }
+  },
+  {
+    "_id": {},
+    "ZTPINT": "10",
+    "ZBATCH": "S40710",
+    "ZSTATUSDOC": "OK",
+    "ZMBLNR": "",
+    "ZMJAHR": "",
+    "ZBELNR": "",
+    "ZGJAHR": "",
+    "ZDOCNUM": "0",
+    "ZCK_BELNR": "",
+    "ZCK_GJAHR": "",
+    "ZDTRECEBIMENTO": "20250806",
+    "ZHORA": "000403",
+    "ZMSG": "",
+    "ITEM": [
+      {
+        "ZPARAMETRO": "GOODSMVT_CODE",
+        "ZITMNUM": "000000",
+        "ZFIELD": "GM_CODE",
+        "ZVALOR": "03"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_HEADER",
+        "ZITMNUM": "000000",
+        "ZFIELD": "DOC_DATE",
+        "ZVALOR": "20250805"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_HEADER",
+        "ZITMNUM": "000000",
+        "ZFIELD": "PSTNG_DATE",
+        "ZVALOR": "20250805"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "PLANT",
+        "ZVALOR": "BR8I"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "ENTRY_UOM",
+        "ZVALOR": "UN"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "PROD_DATE",
+        "ZVALOR": "20250805"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "MATERIAL",
+        "ZVALOR": "000000000000088086"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "STGE_LOC",
+        "ZVALOR": "2000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "MVT_IND",
+        "ZVALOR": ""
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "QUANTITY",
+        "ZVALOR": "15"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "GL_ACCOUNT",
+        "ZVALOR": "0006018000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "BATCH",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "VAL_TYPE",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "ENTRY_QNT",
+        "ZVALOR": "15"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "MOVE_TYPE",
+        "ZVALOR": "251"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "STGE_LOC",
+        "ZVALOR": "2000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "QUANTITY",
+        "ZVALOR": "2"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "ENTRY_QNT",
+        "ZVALOR": "2"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "ENTRY_UOM",
+        "ZVALOR": "UN"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "GL_ACCOUNT",
+        "ZVALOR": "0006018000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "MOVE_TYPE",
+        "ZVALOR": "251"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "PLANT",
+        "ZVALOR": "BR8I"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "MATERIAL",
+        "ZVALOR": "000000000000088087"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "VAL_TYPE",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "MVT_IND",
+        "ZVALOR": ""
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "BATCH",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "PROD_DATE",
+        "ZVALOR": "20250805"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "MOVE_TYPE",
+        "ZVALOR": "251"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "VAL_TYPE",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "BATCH",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "GL_ACCOUNT",
+        "ZVALOR": "0006018000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "ENTRY_QNT",
+        "ZVALOR": "17"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "QUANTITY",
+        "ZVALOR": "17"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "MVT_IND",
+        "ZVALOR": ""
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "STGE_LOC",
+        "ZVALOR": "2000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "MATERIAL",
+        "ZVALOR": "000000000000088665"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "PROD_DATE",
+        "ZVALOR": "20250805"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "PLANT",
+        "ZVALOR": "BR8I"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "ENTRY_UOM",
+        "ZVALOR": "UN"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "PROD_DATE",
+        "ZVALOR": "20250805"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "MATERIAL",
+        "ZVALOR": "000000000000088687"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "MOVE_TYPE",
+        "ZVALOR": "251"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "BATCH",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "QUANTITY",
+        "ZVALOR": "1"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "ENTRY_QNT",
+        "ZVALOR": "1"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "VAL_TYPE",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "MVT_IND",
+        "ZVALOR": ""
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "PLANT",
+        "ZVALOR": "BR8I"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "GL_ACCOUNT",
+        "ZVALOR": "0006018000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "ENTRY_UOM",
+        "ZVALOR": "UN"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "STGE_LOC",
+        "ZVALOR": "2000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "MATERIAL",
+        "ZVALOR": "000000000000105326"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "BATCH",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "VAL_TYPE",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "PROD_DATE",
+        "ZVALOR": "20250805"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "MVT_IND",
+        "ZVALOR": ""
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "PLANT",
+        "ZVALOR": "BR8I"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "ENTRY_UOM",
+        "ZVALOR": "UN"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "QUANTITY",
+        "ZVALOR": "1"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "ENTRY_QNT",
+        "ZVALOR": "1"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "STGE_LOC",
+        "ZVALOR": "2000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "GL_ACCOUNT",
+        "ZVALOR": "0006018000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "MOVE_TYPE",
+        "ZVALOR": "251"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "MOVE_TYPE",
+        "ZVALOR": "251"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "VAL_TYPE",
+        "ZVALOR": "T.PURCHASE"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "MVT_IND",
+        "ZVALOR": ""
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "PROD_DATE",
+        "ZVALOR": "20250805"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "BATCH",
+        "ZVALOR": "T.PURCHASE"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "GL_ACCOUNT",
+        "ZVALOR": "0006018000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "PLANT",
+        "ZVALOR": "BR8I"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "STGE_LOC",
+        "ZVALOR": "2000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "QUANTITY",
+        "ZVALOR": "4"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "ENTRY_UOM",
+        "ZVALOR": "UN"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "MATERIAL",
+        "ZVALOR": "000000000007550562"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "ENTRY_QNT",
+        "ZVALOR": "4"
+      }
+    ]
+  },
+  {
+    "_id": {},
+    "ZTPINT": "10",
+    "ZBATCH": "P43387",
+    "ZSTATUSDOC": "RE",
+    "ZMBLNR": "",
+    "ZMJAHR": "",
+    "ZBELNR": "",
+    "ZGJAHR": "",
+    "ZDOCNUM": "0",
+    "ZCK_BELNR": "",
+    "ZCK_GJAHR": "",
+    "ZDTRECEBIMENTO": "20251113",
+    "ZHORA": "000403",
+    "ZMSG": "",
+    "ITEM": [
+      {
+        "ZPARAMETRO": "GOODSMVT_CODE",
+        "ZITMNUM": "000000",
+        "ZFIELD": "GM_CODE",
+        "ZVALOR": "03"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_HEADER",
+        "ZITMNUM": "000000",
+        "ZFIELD": "PSTNG_DATE",
+        "ZVALOR": "20251112"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_HEADER",
+        "ZITMNUM": "000000",
+        "ZFIELD": "DOC_DATE",
+        "ZVALOR": "20251112"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "PLANT",
+        "ZVALOR": "BR8I"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "STGE_LOC",
+        "ZVALOR": "2000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "MATERIAL",
+        "ZVALOR": "000000000000088086"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "BATCH",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "VAL_TYPE",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "MOVE_TYPE",
+        "ZVALOR": "251"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "GL_ACCOUNT",
+        "ZVALOR": "0006018000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "QUANTITY",
+        "ZVALOR": "25"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "ENTRY_QNT",
+        "ZVALOR": "25"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "MVT_IND",
+        "ZVALOR": ""
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "ENTRY_UOM",
+        "ZVALOR": "UN"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000001",
+        "ZFIELD": "PROD_DATE",
+        "ZVALOR": "20251112"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "MOVE_TYPE",
+        "ZVALOR": "251"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "PLANT",
+        "ZVALOR": "BR8I"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "MATERIAL",
+        "ZVALOR": "000000000000088087"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "GL_ACCOUNT",
+        "ZVALOR": "0006018000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "BATCH",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "STGE_LOC",
+        "ZVALOR": "2000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "ENTRY_QNT",
+        "ZVALOR": "4"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "QUANTITY",
+        "ZVALOR": "4"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "MVT_IND",
+        "ZVALOR": ""
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "PROD_DATE",
+        "ZVALOR": "20251112"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "ENTRY_UOM",
+        "ZVALOR": "UN"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000002",
+        "ZFIELD": "VAL_TYPE",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "MOVE_TYPE",
+        "ZVALOR": "251"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "MATERIAL",
+        "ZVALOR": "000000000000088665"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "GL_ACCOUNT",
+        "ZVALOR": "0006018000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "PLANT",
+        "ZVALOR": "BR8I"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "STGE_LOC",
+        "ZVALOR": "2000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "BATCH",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "QUANTITY",
+        "ZVALOR": "7"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "ENTRY_QNT",
+        "ZVALOR": "7"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "ENTRY_UOM",
+        "ZVALOR": "UN"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "VAL_TYPE",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "PROD_DATE",
+        "ZVALOR": "20251112"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000003",
+        "ZFIELD": "MVT_IND",
+        "ZVALOR": ""
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "PLANT",
+        "ZVALOR": "BR8I"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "ENTRY_QNT",
+        "ZVALOR": "8"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "QUANTITY",
+        "ZVALOR": "8"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "VAL_TYPE",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "BATCH",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "MOVE_TYPE",
+        "ZVALOR": "251"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "MVT_IND",
+        "ZVALOR": ""
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "PROD_DATE",
+        "ZVALOR": "20251112"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "MATERIAL",
+        "ZVALOR": "000000000000088687"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "GL_ACCOUNT",
+        "ZVALOR": "0006018000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "STGE_LOC",
+        "ZVALOR": "2000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000004",
+        "ZFIELD": "ENTRY_UOM",
+        "ZVALOR": "UN"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "ENTRY_UOM",
+        "ZVALOR": "UN"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "STGE_LOC",
+        "ZVALOR": "2000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "MVT_IND",
+        "ZVALOR": ""
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "MATERIAL",
+        "ZVALOR": "000000000000105326"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "ENTRY_QNT",
+        "ZVALOR": "11"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "VAL_TYPE",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "MOVE_TYPE",
+        "ZVALOR": "251"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "QUANTITY",
+        "ZVALOR": "11"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "PROD_DATE",
+        "ZVALOR": "20251112"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "GL_ACCOUNT",
+        "ZVALOR": "0006018000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "PLANT",
+        "ZVALOR": "BR8I"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000005",
+        "ZFIELD": "BATCH",
+        "ZVALOR": "F.RECEIVED"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "VAL_TYPE",
+        "ZVALOR": "T.PURCHASE"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "MOVE_TYPE",
+        "ZVALOR": "251"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "GL_ACCOUNT",
+        "ZVALOR": "0006018000"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "QUANTITY",
+        "ZVALOR": "4"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "PROD_DATE",
+        "ZVALOR": "20251112"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "ENTRY_UOM",
+        "ZVALOR": "UN"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "PLANT",
+        "ZVALOR": "BR8I"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "MVT_IND",
+        "ZVALOR": ""
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "ENTRY_QNT",
+        "ZVALOR": "4"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "BATCH",
+        "ZVALOR": "T.PURCHASE"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "MATERIAL",
+        "ZVALOR": "000000000007550562"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_ITEM",
+        "ZITMNUM": "000006",
+        "ZFIELD": "STGE_LOC",
+        "ZVALOR": "2000"
+      }
+    ]
+  } 
+ 
 ]

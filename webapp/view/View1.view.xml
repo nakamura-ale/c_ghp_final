@@ -16,39 +16,47 @@
                 id="filterBar1"
                 reset="onFilterReset"
                 search="onSearch"
+                showGoOnFB="true" 
             >
-                <fb:filterItems>
-                    <fb:FilterItem
+                <fb:filterGroupItems>
+                    <fb:FilterGroupItem
                         name="InterfaceType"
                         label="Interface Type"
+                        groupName="$INTERNAL$"
+                        visibleInFilterBar="true"
                     >
                         <fb:control>
                             <Input value="{filter>/ZTPINT}" />
                         </fb:control>
-                    </fb:FilterItem>
+                    </fb:FilterGroupItem>
 
-                    <fb:FilterItem
+                    <fb:FilterGroupItem
                         name="Batch"
                         label="{i18n>ZBATCH}"
+                        groupName="$INTERNAL$"
+                        visibleInFilterBar="true"
                     >
                         <fb:control>
                             <Input value="{filter>/ZBATCH}" />
                         </fb:control>
-                    </fb:FilterItem>
+                    </fb:FilterGroupItem>
 
-                    <fb:FilterItem
+                    <fb:FilterGroupItem
                         name="Status"
                         label="{i18n>STATUS}"
+                        groupName="$INTERNAL$"
+                        visibleInFilterBar="true"
                     >
                         <fb:control>
                             <Input value="{filter>/STATUS}" />
                         </fb:control>
-                    </fb:FilterItem>
+                    </fb:FilterGroupItem>
 
-
-                    <fb:FilterItem
+                    <fb:FilterGroupItem
                         name="ZDTRECEBIMENTO_FROM"
                         label="{i18n>RECEPIPTDATEFROM}"
+                        groupName="$INTERNAL$"
+                        visibleInFilterBar="true"
                     >
                         <fb:control>
                             <DatePicker
@@ -58,23 +66,24 @@
                                 value="{filter>/ZDTRECEBIMENTO_FROM}"
                             />
                         </fb:control>
-                    </fb:FilterItem>
+                    </fb:FilterGroupItem>
 
-                    <fb:FilterItem
+                    <fb:FilterGroupItem
                         name="ZDTRECEBIMENTO_TO"
                         label="{i18n>RECEPIPTDATETO}"
+                        groupName="$INTERNAL$"
+                        visibleInFilterBar="true"
                     >
                         <fb:control>
                             <DatePicker
                                 width="100%"
                                 displayFormat="yyyy.MM.dd"
                                 valueFormat="yyyy-MM-dd"
-                                
                                 value="{filter>/ZDTRECEBIMENTO_TO}"
                             />
                         </fb:control>
-                    </fb:FilterItem>
-                </fb:filterItems>
+                    </fb:FilterGroupItem>
+                </fb:filterGroupItems>
             </fb:FilterBar>
 
             <FlexBox
@@ -93,10 +102,10 @@
             <table:Table
                 id="tblData"
                 rows="{view>/data}"
-                selectionMode="MultiToggle" 
+                selectionMode="MultiToggle"
                 enableColumnReordering="true"
-                enableColumnFreeze="true" 
-                enableSelectAll="true" 
+                enableColumnFreeze="true"
+                enableSelectAll="true"
                 class="sapUiSmallMarginTop centerTable"
             >
                 <table:Column
@@ -138,9 +147,20 @@
                         <Text text="{view>ZSTATUSDOC}" />
                     </table:template>
                 </table:Column>
+                 <table:Column
+                    sortProperty="ZITMNUM"
+                    sortOrder="Ascending"
+                >
+                    <Label text="Itm" />
+                    <table:template>
+                        <Text text="{view>ZITMNUM}" />
+                    </table:template>
+                </table:Column>
+
                 <table:Column
                     sortProperty="MATERIAL_CODE"
                     sortOrder="Ascending"
+                    width="180px"
                 >
                     <Label text="Material Code" />
                     <table:template>
@@ -168,9 +188,9 @@
                 <table:Column>
                     <Label text="Time of Receipt" />
                     <table:template>
-                         <Text
-                             text="{path: 'view>TIME', formatter: '.formatter.formatTime'}"
-                          />
+                        <Text
+                            text="{path: 'view>TIME', formatter: '.formatter.formatTime'}"
+                        />
                     </table:template>
                 </table:Column>
                 <table:Column>

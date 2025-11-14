@@ -1,11 +1,10 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast",
+    "sap/ui/core/mvc/Controller", 
     "sap/m/MessageBox", 
     "cghpfinal/model/formatter", 
     "cghpfinal/model/Config",
     "cghpfinal/model/DataFormatter"
-], (Controller, MessageToast, MessageBox,  formatter, Config,DataFormatter) => {
+], (Controller,  MessageBox,  formatter, Config,DataFormatter) => {
     "use strict";
 
     return Controller.extend("cghpfinal.controller.View1", {
@@ -39,6 +38,7 @@ sap.ui.define([
         },
 
         onSearch: function () {
+ 
 
             const USE_MOCK = true;
             if (USE_MOCK) {
@@ -74,14 +74,14 @@ sap.ui.define([
                     this.getView().getModel("view").setProperty("/data", treated);
                     if (!data || data.length === 0) {
                         this.getView().getModel("view").setProperty("/data", []);
-                        sap.m.MessageToast.show("Nenhum dado encontrado para os filtros informados.");
+                        MessageBox.error("Nenhum dado encontrado para os filtros informados.");
                         return;
                     }
  
                 })
                 .catch(err => {
                     console.error("Erro ao carregar API:", err);
-                    MessageToast.show("Erro ao carregar dados da API externa.");
+                    MessageBox.show("Erro ao carregar dados da API externa.");
                 });
 
         },
@@ -106,8 +106,7 @@ sap.ui.define([
                 // Trata e exibe os dados
                 const treated = DataFormatter.flattenData(mockData);
                 this.getView().getModel("view").setProperty("/data", treated);
-
-                sap.m.MessageToast.show("Dados mockados carregados a partir do arquivo local.");
+ 
             });
         }, 
 
@@ -125,7 +124,7 @@ sap.ui.define([
             const selectedIndices = oTable.getSelectedIndices();
 
             if (selectedIndices.length === 0) {
-                MessageToast.show("Selecione ao menos um item para reprocessar.");
+                MessageBox.error("Selecione ao menos um item para reprocessar.");
                 return;
             }
 
@@ -134,7 +133,7 @@ sap.ui.define([
                 .filter(item => item.ZSTATUSDOC === "RE");
 
             if (selectedItems.length === 0) {
-                MessageToast.show("Nenhum item com status ERR foi selecionado.");
+                MessageBox.error("Nenhum item com status ERR foi selecionado.");
                 return;
             }
 
@@ -153,7 +152,7 @@ sap.ui.define([
 
 
             if (!aToSend.length) {
-                sap.m.MessageToast.show("Nenhum dado válido para envio.");
+                MessageBox.error("Nenhum dado válido para envio.");
                 return;
             }
 
@@ -182,8 +181,7 @@ sap.ui.define([
                 .then(result => {
                     MessageBox.show("Reprocessamento enviado com sucesso!"); 
                 })
-                .catch(err => {
-                    console.error("Erro no reprocessamento:", err);
+                .catch(err => { 
                     MessageBox.error("Falha ao enviar dados para reprocessamento.");
                 });
         },
@@ -201,7 +199,7 @@ sap.ui.define([
                 if (!oCtx) return;
                 const item = oCtx.getObject();
 
-                if (item.ZSTATUSDOC === "RE") {
+                if (item.ZSTATUSDOC === "OK") {
                     const $row = row.$();
                     $row.addClass("rowDisabled");
 
@@ -225,8 +223,8 @@ sap.ui.define([
 
             aIndices.forEach(index => {
                 const item = aData[index];
-                if (item && item.ZSTATUSDOC === "ERE") {
-                    MessageToast.show("Linhas com status 'RE' não podem ser selecionadas.");
+                if (item && item.ZSTATUSDOC === "OK") {
+                    MessageBox.show("Linhas com status 'OK' não podem ser selecionadas.");
                     oTable.removeSelectionInterval(index, index);
                 }
             });
