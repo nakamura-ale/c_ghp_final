@@ -3,6 +3,7 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns:smartTable="sap.ui.comp.smarttable"
     xmlns="sap.m"
+    xmlns:core="sap.ui.core"
     xmlns:table="sap.ui.table"
     xmlns:fb="sap.ui.comp.filterbar"
 >
@@ -16,7 +17,7 @@
                 id="filterBar1"
                 reset="onFilterReset"
                 search="onSearch"
-                showGoOnFB="true" 
+                showGoOnFB="true"
             >
                 <fb:filterGroupItems>
                     <fb:FilterGroupItem
@@ -102,22 +103,38 @@
             <table:Table
                 id="tblData"
                 rows="{view>/data}"
+                visibleRowCount="20"
+                visibleRowCountMode="Fixed"
                 selectionMode="MultiToggle"
                 enableColumnReordering="true"
                 enableColumnFreeze="true"
-                enableSelectAll="true"
+                enableSelectAll="false"
                 class="sapUiSmallMarginTop centerTable"
             >
                 <table:Column
                     sortProperty="ZTPINT"
                     filterProperty="ZTPINT"
-                    sortOrder="Ascending"
+                    width="80px"
                 >
                     <Label text="Interface Type" />
                     <table:template>
-                        <Text text="{view>ZTPINT}" />
+                        <HBox
+                            alignItems="Center"
+                            justifyContent="SpaceBetween"
+                        >
+                            <Text text="{view>ZTPINT}" />
+
+                            <core:Icon
+                                id="_IDGenIcon"
+                                src="sap-icon://error"
+                                color="Negative"
+                                visible="{= ${view>ZSTATUSDOC} !== 'OK' }"
+                                tooltip="ZTPINT maior que 10!"
+                            />
+                        </HBox>
                     </table:template>
                 </table:Column>
+
                 <table:Column
                     sortProperty="ZBATCH"
                     sortOrder="Ascending"
@@ -128,8 +145,19 @@
                     </table:template>
                 </table:Column>
                 <table:Column
+                    sortProperty="GM_CODE"
+                    sortOrder="Ascending"
+                    width="50px"
+                >
+                    <Label text="GM_CODE" />
+                    <table:template>
+                        <Text text="{view>GM_CODE}" />
+                    </table:template>
+                </table:Column>
+                <table:Column
                     sortProperty="ZDTRECEBIMENTO"
                     sortOrder="Ascending"
+                    width="100px"
                 >
                     <Label text="Receipt Date" />
                     <table:template>
@@ -139,17 +167,61 @@
                     </table:template>
                 </table:Column>
                 <table:Column
+                    sortProperty="PSTNG_DATE"
+                    sortOrder="Ascending"
+                    width="100px"
+                >
+                    <Label text="PSTNG_DATE" />
+                    <table:template>
+                        <Text
+                            text="{path: 'view>PSTNG_DATE', formatter: '.formatter.formatDate'}"
+                        />
+                    </table:template>
+                </table:Column>
+                <table:Column
+                    sortProperty="HEADER_TXT"
+                    sortOrder="Ascending"
+                    width="100px"
+                >
+                    <Label text="HEADER_TXT" />
+                    <table:template>
+                        <Text text="{view>HEADER_TXT}" />
+                    </table:template>
+                </table:Column>
+                <table:Column
+                    sortProperty="REF_DOC_NO"
+                    sortOrder="Ascending"
+                    width="100px"
+                >
+                    <Label text="REF_DOC_NO" />
+                    <table:template>
+                        <Text text="{view>REF_DOC_NO}" />
+                    </table:template>
+                </table:Column>
+                <table:Column
+                    sortProperty="BATCH"
+                    sortOrder="Ascending"
+                    width="110px"
+                >
+                    <Label text="BATCH" />
+                    <table:template>
+                        <Text text="{view>BATCH}" />
+                    </table:template>
+                </table:Column>
+                <table:Column
                     sortProperty="ZSTATUSDOC"
                     sortOrder="Ascending"
+                    width="50px"
                 >
                     <Label text="Status" />
                     <table:template>
                         <Text text="{view>ZSTATUSDOC}" />
                     </table:template>
                 </table:Column>
-                 <table:Column
+                <table:Column
                     sortProperty="ZITMNUM"
                     sortOrder="Ascending"
+                    width="70px"
                 >
                     <Label text="Itm" />
                     <table:template>
@@ -193,13 +265,13 @@
                         />
                     </table:template>
                 </table:Column>
-                <table:Column>
+                <table:Column width="100px">
                     <Label text="Account" />
                     <table:template>
                         <Text text="{view>GL_ACCOUNT}" />
                     </table:template>
                 </table:Column>
-                <table:Column>
+                <table:Column width="100px">
                     <Label text="NF-e Reference" />
                     <table:template>
                         <Text text="{view>NFE_REFERENCE}" />

@@ -490,6 +490,18 @@
         "ZVALOR": "03"
       },
       {
+        "ZPARAMETRO": "GOODSMVT_CODE",
+        "ZITMNUM": "000000",
+        "ZFIELD": "REF_DOC_NO",
+        "ZVALOR": "100044394-1"
+      },
+      {
+        "ZPARAMETRO": "GOODSMVT_CODE",
+        "ZITMNUM": "000000",
+        "ZFIELD": "HEADER_TXT",
+        "ZVALOR": "000001394-1"
+      },
+      {
         "ZPARAMETRO": "GOODSMVT_HEADER",
         "ZITMNUM": "000000",
         "ZFIELD": "DOC_DATE",
@@ -1402,6 +1414,5 @@
         "ZVALOR": "2000"
       }
     ]
-  } 
- 
+  }
 ]

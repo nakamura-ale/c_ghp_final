@@ -11,7 +11,7 @@ sap.ui.define([], function () {
                     ZTPINT: header.ZTPINT,
                     ZBATCH: header.ZBATCH,
                     ZSTATUSDOC: header.ZSTATUSDOC,
-                    ZDTRECEBIMENTO: header.ZDTRECEBIMENTO || "",
+                    //ZDTRECEBIMENTO: header.ZDTRECEBIMENTO || "",
                     ZMSG: header.ZMSG || "",
                     MATERIAL_CODE: "",
                     QUANTITY: "",
@@ -35,14 +35,10 @@ sap.ui.define([], function () {
                     const valor = item.ZVALOR;
                     switch (item.ZFIELD) {
                         case "DOC_DATE": headerValues.ZDTRECEBIMENTO = valor; break;
-                        case "GM_CODE": headerValues.MOVIMENT = valor; break;
-                        case "MATERIAL": headerValues.MATERIAL_CODE = valor; break;
-                        case "QUANTITY": headerValues.QUANTITY = valor; break;
-                        case "ENTRY_UOM": headerValues.UNIDADE = valor; break;
-                        case "PLANT": headerValues.PLANT = valor; break;
-                        case "GL_ACCOUNT": headerValues.GL_ACCOUNT = valor; break;
-                        case "STGE_LOC": headerValues.DEPOSIT = valor; break;
-                        case "SPLIT": headerValues.SPLIT = valor; break; 
+                        case "PSTNG_DATE": headerValues.PSTNG_DATE = valor; break; 
+                        case "HEADER_TXT": headerValues.HEADER_TXT= valor; break;
+                        case "REF_DOC_NO": headerValues.REF_DOC_NO = valor; break; 
+                        case "GM_CODE": headerValues.GM_CODE = valor; break;                         
                         default: break;
                     }
                 });
@@ -66,6 +62,7 @@ sap.ui.define([], function () {
  
                         switch (item.ZFIELD) {
                             case "DOC_DATE": linha.ZDTRECEBIMENTO = valor; break;
+                            case "BATCH": linha.BATCH= valor; break;
                             case "GM_CODE": linha.MOVIMENT = valor; break;
                             case "MATERIAL": linha.MATERIAL_CODE = valor; break;
                             case "QUANTITY": linha.QUANTITY = valor; break;

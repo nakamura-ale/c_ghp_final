@@ -1,10 +1,10 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller", 
-    "sap/m/MessageBox", 
-    "cghpfinal/model/formatter", 
+    "sap/m/MessageBox",
+    "cghpfinal/model/formatter",
     "cghpfinal/model/Config",
     "cghpfinal/model/DataFormatter"
-], (Controller,  MessageBox,  formatter, Config,DataFormatter) => {
+], (Controller, MessageBox, formatter, Config, DataFormatter) => {
     "use strict";
 
     return Controller.extend("cghpfinal.controller.View1", {
@@ -31,14 +31,14 @@ sap.ui.define([
             this.getView().setModel(oRawModel, "raw");
 
             // 🔹 Adiciona lógica de bloqueio da seleção
-            const oTable = this.byId("tblData");
+            const oTable = this.byId("tblData"); 
             if (oTable) {
                 oTable.attachRowSelectionChange(this.onRowSelectionChange, this);
             }
         },
 
         onSearch: function () {
- 
+
 
             const USE_MOCK = true;
             if (USE_MOCK) {
@@ -53,9 +53,9 @@ sap.ui.define([
             //const baseUrl = `/mongo-compare/material-document-search?` +
             //    `from=${from}&to=${to}&batch=${batch}&status=${status}&ztpint=${ztpint}`;
             const baseUrl = Config.buildUrl("MATERIAL_SEARCH", {
-                from:   oFilterData.ZDTRECEBIMENTO_FROM || "",
-                to:     oFilterData.ZDTRECEBIMENTO_TO || "",
-                batch:  oFilterData.ZBATCH || "",
+                from: oFilterData.ZDTRECEBIMENTO_FROM || "",
+                to: oFilterData.ZDTRECEBIMENTO_TO || "",
+                batch: oFilterData.ZBATCH || "",
                 status: oFilterData.STATUS || "",
                 ztpint: oFilterData.ZTPINT || ""
             });
@@ -77,7 +77,7 @@ sap.ui.define([
                         MessageBox.error("Nenhum dado encontrado para os filtros informados.");
                         return;
                     }
- 
+
                 })
                 .catch(err => {
                     console.error("Erro ao carregar API:", err);
@@ -90,7 +90,7 @@ sap.ui.define([
 
         // ------------------------------------------------------------------------- 
         //  Caminho do arquivo mockado (relativo à pasta webapp)
-       // -------------------------------------------------------------------------
+        // -------------------------------------------------------------------------
         _loadMockData: function () {
             const sMockPath = sap.ui.require.toUrl("cghpfinal/localService/mockdata/b1.json");
             // 🔹 Carrega o arquivo mock via JSONModel
@@ -106,13 +106,13 @@ sap.ui.define([
                 // Trata e exibe os dados
                 const treated = DataFormatter.flattenData(mockData);
                 this.getView().getModel("view").setProperty("/data", treated);
- 
+
             });
-        }, 
+        },
 
         // ------------------------------------------------------------------------- 
         //  Reprocessar itens selecionados
-       // -------------------------------------------------------------------------
+        // -------------------------------------------------------------------------
         onReprocess: function () {
             const oTable = this.byId("tblData");
 
@@ -179,39 +179,11 @@ sap.ui.define([
                     return res.json();
                 })
                 .then(result => {
-                    MessageBox.show("Reprocessamento enviado com sucesso!"); 
+                    MessageBox.show("Reprocessamento enviado com sucesso!");
                 })
-                .catch(err => { 
+                .catch(err => {
                     MessageBox.error("Falha ao enviar dados para reprocessamento.");
                 });
-        },
-
-
-        // 🔹 BLOQUEIA LINHAS COM STATUS "RE"
-        disableRestrictedRows() {
-            const oTable = this.byId("tblData");
-            const oModel = this.getView().getModel("view");
-            const aData = oModel.getProperty("/data") || [];
-
-            const aRows = oTable.getRows();
-            aRows.forEach((row, index) => {
-                const oCtx = row.getBindingContext("view");
-                if (!oCtx) return;
-                const item = oCtx.getObject();
-
-                if (item.ZSTATUSDOC === "OK") {
-                    const $row = row.$();
-                    $row.addClass("rowDisabled");
-
-                    // 🔹 Desativa o checkbox da linha (DOM direto)
-                    const $checkbox = $row.find(".sapMCb"); // checkbox control
-                    $checkbox.addClass("sapMCbDisabled"); // estilo SAP nativo de “disabled”
-                    $checkbox.css({
-                        "pointer-events": "none",
-                        "opacity": "3.5"
-                    });
-                }
-            });
         },
 
         // 🔹 EVITA SELEÇÃO DE LINHAS COM STATUS "RE"                                                                                                                                                                                                       
